@@ -35,6 +35,10 @@
 
 `Flash.danger(id, message)`
 
+#### Template helpers
+
+Simply use `{{flash id}}` helper to display flash message. **id** parameter is optional, defaults to `__default__`.
+
 #### Clear flash message
 
 `Flash.clear()` - clear all flash messages.
