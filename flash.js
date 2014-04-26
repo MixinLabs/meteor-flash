@@ -2,7 +2,7 @@ var FLASH_DEFAULT_ID   = '__default__';
 var FLASH_DEFAULT_TYPE = 'warning';
 
 
-var flashDeps = new Deps.Dependency;
+var flashDeps = new Deps.Dependency();
 
 Flash = {
   config: {
@@ -33,6 +33,10 @@ Flash = {
       attributes: {}
     }
   }
+};
+
+Flash.switchProfile = function (profileName) {
+  Flash.config.profile = Flash.profiles[profileName];
 };
 
 var flashSet = function (id, message) {
@@ -73,16 +77,16 @@ function autoDetectProfile() {
   }
 
   // Basic
-  return 'basic;'
+  return 'basic';
 }
 
 // If IronRouter is present, -
 // Clear Flash messages on page-change
 function injectRouter() {
   if (typeof(Router) !== 'undefined' && Router.routes) {
-    Router.before(Flash.clear);
+    Router.onBeforeAction(function () { Flash.clear(); });
   }
-};
+}
 
 Meteor.startup(function () {
   Flash.switchProfile(autoDetectProfile());
@@ -90,9 +94,6 @@ Meteor.startup(function () {
 });
 
 
-Flash.switchProfile = function (profileName) {
-  Flash.config.profile = Flash.profiles[profileName];
-};
 
 Flash.set = flashStateFn(Flash.config.defaultType);
 Flash.warning = flashStateFn('warning');

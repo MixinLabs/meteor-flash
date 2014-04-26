@@ -1,4 +1,4 @@
-Handlebars.registerHelper('flash', function (id) {
+UI.registerHelper('flash', function (id) {
 
   id = (typeof(id) === 'string' ? id : null);
   var flash = Flash.get(id);
@@ -29,7 +29,7 @@ Handlebars.registerHelper('flash', function (id) {
       val = attrs[key];
       attrStr += key;
       if (val !== '' || val !== null) {
-        attrStr += '="' +val+ '"'
+        attrStr += '="' +val+ '"';
       }
       attrStr += ' ';
     }
@@ -43,5 +43,5 @@ Handlebars.registerHelper('flash', function (id) {
   tmpl += closeButton || '';
   tmpl += closeTag;
 
-  return new Handlebars.SafeString(tmpl);
+  return new Spacebars.SafeString(tmpl);
 });

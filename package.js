@@ -9,6 +9,7 @@ Package.on_use(function (api) {
   api.export('Flash', 'client');
 
   // Handlebars Helper
-  api.use('handlebars', 'client');
+  api.use('spacebars', 'client');
+  api.use('ui', 'client');
   api.add_files(['./hbs_helper.js'], 'client');
 });
