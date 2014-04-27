@@ -21,25 +21,28 @@
 
 #### Set flash message
 
-`Flash.set(id, message, [timeout])` - Same as calling `Flash.warning(id, message, [timeout])`.
+`Flash.set([id], message, [timeout])` - Same as calling `Flash.warning(id, message, [timeout])`.
 
-**id** *(optional, defaults to `__default__`)*  - assigns an id to a message. Helpful for multiple flash messages on the same page.
+**Parameters:**
 
-**message** - Flash message
+* `id` *(optional, defaults to `__default__`)*  - assigns an id to a message. Helpful for multiple flash messages on the same page.
+* `message` - Flash message
+* `timeout` - *In miliseconds*, clears this flash message after a specified amount of time. [Read more..](#clearing)
 
-`Flash.warning(id, message, [timeout])`
+**Function variants according to flash message state:** 
 
-`Flash.success(id, message, [timeout])`
-
-`Flash.info(id, message, [timeout])`
-
-`Flash.danger(id, message, [timeout])`
+* `Flash.warning([id], message, [timeout])`
+* `Flash.success([id], message, [timeout])`
+* `Flash.info([id], message, [timeout])`
+* `Flash.danger([id], message, [timeout])`
 
 #### Template helpers
 
 Simply use `{{flash id}}` helper to display flash message. **id** parameter is optional, defaults to `__default__`.
 
-#### Clear flash message
+<a name="clearing" id="clearing"></a>
+#### Clearing flash messages
+
 
 `Flash.clear()` - clear all flash messages.
 
