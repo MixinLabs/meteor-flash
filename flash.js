@@ -39,8 +39,8 @@ Flash.switchProfile = function (profileName) {
   Flash.config.profile = Flash.profiles[profileName];
 };
 
-var flashSet = function (id, message) {
-  var timeout = Flash.config.timeout,
+var flashSet = function (id, message, localTimeout) {
+  var timeout = localTimeout || Flash.config.timeout,
       timer;
 
   Flash.messages[id] = message;
@@ -55,12 +55,12 @@ var flashSet = function (id, message) {
 };
 
 var flashStateFn = function (state) {
-  return function (id, message) {
+  return function (id, message, localTimeout) {
     if (!message) {
       message = id;
       id = FLASH_DEFAULT_ID;
     }
-    return flashSet(id, [state, message]);
+    return flashSet(id, [state, message], localTimeout);
   };
 };
 
