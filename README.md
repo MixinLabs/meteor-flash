@@ -21,19 +21,19 @@
 
 #### Set flash message
 
-`Flash.set(id, message)` - Same as calling `Flash.warning(id, message)`.
+`Flash.set(id, message, [timeout])` - Same as calling `Flash.warning(id, message, [timeout])`.
 
 **id** *(optional, defaults to `__default__`)*  - assigns an id to a message. Helpful for multiple flash messages on the same page.
 
 **message** - Flash message
 
-`Flash.warning(id, message)`
+`Flash.warning(id, message, [timeout])`
 
-`Flash.success(id, message)`
+`Flash.success(id, message, [timeout])`
 
-`Flash.info(id, message)`
+`Flash.info(id, message, [timeout])`
 
-`Flash.danger(id, message)`
+`Flash.danger(id, message, [timeout])`
 
 #### Template helpers
 
@@ -45,7 +45,7 @@ Simply use `{{flash id}}` helper to display flash message. **id** parameter is o
 
 `Flash.clear(id)` - clear flash message with specific id.
 
-Alternatively, it is possible for a message to clear out itself after a certain period of time. By default, this is disabled. To enable this, specify time (in milliseconds), e.g.: `Flash.config.timeout = 5000`. The message will be cleared after 5 seconds.
+Alternatively, it is possible for a message to clear out itself after a certain period of time. By default, this is disabled. To enable this globally, specify time (in milliseconds), e.g.: `Flash.config.timeout = 5000`. The message will be cleared after 5 seconds. You can also set the timeout for each flash message overriding this global config, e.g.: `Flash.set('top','Test message', 3000)`.
 
 #### Switching profile
 
