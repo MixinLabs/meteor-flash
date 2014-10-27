@@ -1,5 +1,7 @@
 # Flash
 
+**Note**: Due to lack of time I will no longer maintain this package. Please use the [naxio:flash](https://github.com/nxio/meteor-flash) package.
+
 ### Flexible Flash messages for Meteor
 
 **Version**: `0.2.0`
